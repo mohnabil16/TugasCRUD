@@ -24,7 +24,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('Product.create');
     }
 
     /**
@@ -35,7 +35,12 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = [
+            'name'=>$request->name,
+            'price'=>$request->price,
+            'desc'=>$request->desc
+        ];
+        Product::create($data);
     }
 
     /**

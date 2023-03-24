@@ -14,7 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $data1 = Category::orderBy('name', 'desc')->get();
+        return view('Category.index')->with('category', $data1);
     }
 
     /**
@@ -24,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('Category.create');
     }
 
     /**
@@ -35,7 +36,12 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data1 = [
+            'name'=>$request->name,
+            'desc'=>$request->desc
+        ];
+        Category::create($data1);
+        return redirect('/category');
     }
 
     /**
@@ -55,9 +61,11 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        //
+        $data1 = Category::find($id);
+        // dd($data1);
+        return view('Category.edit',['category'=>$data1]);
     }
 
     /**
@@ -67,9 +75,14 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        //
+        $data1 = [
+            'name'=>$request->name,
+            'desc'=>$request->desc
+        ];
+        Category::find($id)->update($data1);
+        return redirect('/category');
     }
 
     /**
@@ -78,8 +91,9 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        //
+        Category::where('id',$id)->delete();
+        return redirect('/category');
     }
 }
