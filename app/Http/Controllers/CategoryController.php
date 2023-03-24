@@ -14,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $data1 = Category::orderBy('name', 'desc')->get();
+        $data1 = Category::all();
         return view('Category.index')->with('category', $data1);
     }
 

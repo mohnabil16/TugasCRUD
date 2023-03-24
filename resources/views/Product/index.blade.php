@@ -2,21 +2,39 @@
 
 @section('content')
 <div class="pb-3">
-    <a href='' class="btn btn-primary">+ Tambah Data</a>
+    <a href='{{url('product/create')}}' class="btn btn-primary">+ Tambah Data</a>
 </div>
-<div class="container">
-    <div class="row" >
-    <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-        <div class="product text-center">
-        {{-- <img src="img\Ps4.jpeg" class="product-img-top" alt="" width="200px"> --}}
-        <div class="product-body">
-            <h5 class="product-title">FIFA 23</h5>
-            <h6 class="product-price">Rp. 500.000</h6>
-            <p class="product-desc">CD FIFA 2023</p>
-            <a href="" class="btn btn-dark d-grid ">Buy</a>
-        </div>
-        </div>
-    </div>
-    </div>
-</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="col-md-1">No</th>
+            <th class="col-md-2">Nama</th>
+            <th class="col-md-2">Kategori</th>
+            <th class="col-md-2">Harga</th>
+            <th class="col-md-4">Deskripsi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($product as $item)
+        <tr>
+            <td>{{$item->id}}</td>
+            <td>{{$item->name}}</td>
+            <td>{{$item->category->name}}</td>
+            <td>{{$item->price}}</td>
+            <td>{{$item->desc}}</td>
+            <td>
+                <a href='{{url('product/'.$item->id.'/edit')}}' class="btn btn-warning btn-sm">Edit</a>
+                <form class="d-inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data?')" action="{{ url('product/'.$item->id) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" name="submit" class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </form>
+            </td>
+        </tr>
+        @endforeach
+
+    </tbody>
+</table>
 @endsection

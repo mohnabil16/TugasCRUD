@@ -4,7 +4,7 @@
 <div class="pb-3">
     <a href='{{url('category/create')}}' class="btn btn-primary">+ Tambah Data</a>
 </div>
-{{-- @foreach ($category as $data) --}}
+
 <table class="table table-striped">
     <thead>
         <tr>

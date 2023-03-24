@@ -6,8 +6,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="#">Product</a>
-            <a class="nav-link" href="Category\create.blade.php">Category</a>
+            <a class="nav-link" href="{{url('product')}}">Product</a>
+            <a class="nav-link" href="{{url('category')}}">Category</a>
             <a class="nav-link" href="#">Cart</a>
         </div>
         </div>

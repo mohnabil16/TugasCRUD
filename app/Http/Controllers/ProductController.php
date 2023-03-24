@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('Product.index');
+        $data = Product::all();
+        return view('Product.index')->with('product', $data);
     }
 
     /**
@@ -24,9 +26,11 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('Product.create');
-    }
 
+        return view('product.create', [
+            'category' => Category::all(),
+        ]);
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -38,9 +42,11 @@ class ProductController extends Controller
         $data = [
             'name'=>$request->name,
             'price'=>$request->price,
-            'desc'=>$request->desc
+            'desc'=>$request->desc,
+            'category_id'=>$request->category_id
         ];
         Product::create($data);
+        return redirect('/product');
     }
 
     /**
@@ -60,9 +66,11 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+        $data = Product::find($id);
+        // dd($data1);
+        return view('Product.edit',['product'=>$data, 'category' => Category::all()]);
     }
 
     /**
@@ -72,9 +80,16 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+        $data = [
+            'name'=>$request->name,
+            'price'=>$request->price,
+            'desc'=>$request->desc,
+            'category_id'=>$request->category_id
+        ];
+        Product::find($id)->update($data);
+        return redirect('/product');
     }
 
     /**
@@ -83,8 +98,9 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        Category::where('id',$id)->delete();
+        return redirect('/product');
     }
 }
