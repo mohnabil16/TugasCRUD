@@ -100,7 +100,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        Category::where('id',$id)->delete();
+        Product::where('id',$id)->delete();
         return redirect('/product');
     }
 }
