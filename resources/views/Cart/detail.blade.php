@@ -10,11 +10,13 @@
         <tr>
             <th class="col-md-1">No</th>
             <th class="col-md-4">Nama</th>
-            <th class="col-md-2">Deskripsi</th>
+            <th class="col-md-4">Harga</th>
+            <th class="col-md-2">Kategori</th>
+            <th class="col-md-4">Jumlah</th>
         </tr>
     </thead>
     <tbody>
-        @foreach ($category as $item)
+        {{-- @foreach ($category as $item)
         <tr>
             <td>{{$item->id}}</td>
             <td>{{$item->name}}</td>
@@ -30,7 +32,7 @@
                 </form>
             </td>
         </tr>
-        @endforeach
+        @endforeach --}}
 
     </tbody>
 </table>

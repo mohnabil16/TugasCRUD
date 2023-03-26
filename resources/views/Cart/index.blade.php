@@ -35,10 +35,15 @@
             <img src="{{asset('poto\Ps4.jpeg')}}" class="product-img-top" alt="" width="200px">
         <div class="product-body">
             <h5 class="product-title">{{$item->name}}</h5>
-            <h6 class="product-price">{{$item->price}}</h6>
+            <h6 class="product-price">Rp. {{$item->price}}</h6>
             <p class="product-desc">{{$item->category->name}}</p>
+<form action="{{url('cart')}}" method="post">
+    @csrf
+    {{-- <input type="number" value="1" min="1" class="form-control" style="width: 100px"> --}}
+    <input type="hidden" name="product_id" value="{{$item->id}}">
+    <a href="" class="btn btn-dark d-grid ">Tambah</a>
+</form>
 
-            <a href="" class="btn btn-dark d-grid ">Buy</a>
         </div>
         </div>
     </div>
