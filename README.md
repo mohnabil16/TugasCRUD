@@ -8,6 +8,7 @@
 ## Demo
 ### Jika belum punya akun
 * Klik Register
+image.png
 * Isi form dan klik Register
 ### Jika sudah punya akun
 * Isi form dan klik Login
