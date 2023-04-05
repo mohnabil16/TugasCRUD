@@ -9,6 +9,7 @@
             <a class="nav-link" href="{{url('product')}}">Product</a>
             <a class="nav-link" href="{{url('category')}}">Category</a>
             <a class="nav-link" href="#">Cart</a>
+            <a class="nav-link" href="/session/logout">Logout</a>
         </div>
         </div>
     </div>

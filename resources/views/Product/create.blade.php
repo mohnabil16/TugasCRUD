@@ -1,15 +1,7 @@
 @extends('layout.tamplate')
 
 @section('content')
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+
 <form action="{{url('product')}}" method="post">
     @csrf
     <select class="form-select" aria-label="Default select example" name="category_id">
