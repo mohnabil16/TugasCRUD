@@ -1,7 +1,7 @@
 @extends('layout.tamplate')
 
 @section('content')
-<div id="carouselExampleIndicators" class="carousel slide mt-5">
+<div id="carouselExampleIndicators" class="carousel slide mt-5 px-3 py-3 mx-auto mt-5">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -9,13 +9,13 @@
     </div>
     <div class="carousel-inner">
     <div class="carousel-item active">
-        <img src="{{asset('poto\FIFA.jpg')}}" class="d-block img-fluid" alt="gambar1">
+        <img src="{{asset('poto\FIFA.jpeg')}}" class="d-block img-fluid" alt="gambar1">
     </div>
     <div class="carousel-item">
-        <img src="{{asset('poto\GTA.jpg')}}" class="d-block img-fluid" alt="gambar2">
+        <img src="{{asset('poto\NBA.jpeg')}}" class="d-block img-fluid" alt="gambar2">
     </div>
     <div class="carousel-item">
-        <img src="{{asset('poto\6.jpg')}}" class="d-block img-fluid" alt="gambar3">
+        <img src="{{asset('poto\6.jpeg')}}" class="d-block img-fluid" alt="gambar3">
     </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -30,7 +30,7 @@
 <div class="container">
     @foreach ($product as $item)
     <div class="row" >
-        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+        <div class="w-50 center border rounded px-3 py-3 mx-auto mt-5 shadow-sm">
         <div class="product text-center">
             <img src="{{asset('poto\Ps4.jpeg')}}" class="product-img-top" alt="" width="200px">
         <div class="product-body">

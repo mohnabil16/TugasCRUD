@@ -1,7 +1,8 @@
 @extends('layout.tamplate')
 
 @section('content')
-{{-- <form action="/session/login" method="POST">
+<div class="w-50 center border rounded px-3 py-3 mx-auto mt-5 shadow-sm">
+<form action="/session/login" method="POST">
     @csrf
     <div class="mb-3">
         <label for="email" class="form-label">Email address</label>
@@ -17,9 +18,9 @@
         <a href="session/register">silakan mendaftar.</a>
     </p>
     <button type="submit" class="btn btn-primary">Login</button>
-</form> --}}
-
-<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+</form>
+</div>
+{{-- <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
     <form action="/session/login" method="POST">
         @csrf
         <!-- Email input -->
@@ -52,6 +53,6 @@
                     class="link-danger">Register</a></p>
         </div>
 
-    </form>
-</div>
+    </form> --}}
+{{-- </div> --}}
 @endsection
